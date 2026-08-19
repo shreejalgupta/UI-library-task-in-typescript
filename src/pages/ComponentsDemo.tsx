@@ -9,6 +9,7 @@ interface ComponentDemoProps {
 }
 
 const ComponentDemo = ({ children, code }: ComponentDemoProps) => {
+  console.log(children)
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   return (
