@@ -75,7 +75,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
               tooltipRef.current = e as HTMLDivElement;
               if (typeof ref === "function") ref(e as HTMLDivElement);
               else if (ref)
-                (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
+                (ref as React.MutableRefObject<HTMLDivElement | null>).current = e;
             }}
             className={cn(tooltipVariants({ variant, size, position, className }))}
             {...props}
