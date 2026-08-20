@@ -23,6 +23,9 @@
     "build": "vite build && tsc -p tsconfig.lib.json",
     "preview": "vite preview"
   },
+  "allow-scripts": {
+  "esbuild": true
+},
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
