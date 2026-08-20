@@ -15,7 +15,7 @@
     ".": {
       "import": "./dist/easeui.es.js",
       "require": "./dist/easeui.umd.js"
-    },
+    },  
     "./style.css": "./dist/index.css"
   },
   "scripts": {
