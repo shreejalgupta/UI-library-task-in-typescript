@@ -101,7 +101,7 @@ console.log(animation)
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {slides.map((val, id) => (
-            <div key={id} className="w-full flex-shrink-0">
+            <div key={id} className="w-full shrink-0">
               <img
                 src={val}
                 alt={`Slide ${id}`}

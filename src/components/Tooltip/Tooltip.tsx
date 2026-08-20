@@ -6,7 +6,8 @@ import { cva } from "class-variance-authority";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TooltipProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof tooltipVariants> {
   asChild?: boolean;
   animation?: keyof typeof entranceAnimations;
@@ -42,13 +43,23 @@ const tooltipVariants = cva(
       size: "md",
       position: "top",
     },
-  }
+  },
 );
 
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   (
-    { className, variant, size, position, asChild = false, animation = "fadeIn", content, children, ...props },
-    ref
+    {
+      className,
+      variant,
+      size,
+      position,
+      asChild = false,
+      animation = "fadeIn",
+      content,
+      children,
+      ...props
+    },
+    ref,
   ) => {
     const Comp = asChild ? Slot : "div";
     // console.log(children)
@@ -71,13 +82,17 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
         <Comp>{children}</Comp>
         {visible && (
           <div
-            ref={(e) => {
-              tooltipRef.current = e as HTMLDivElement;
-              if (typeof ref === "function") ref(e as HTMLDivElement);
+            ref={(node) => {
+              tooltipRef.current = node;
+              if (typeof ref === "function") ref(node);
               else if (ref)
-                (ref as React.MutableRefObject<HTMLDivElement | null>).current = e;
+                (ref as React.MutableRefObject<HTMLDivElement | null>).current =
+                  node;
             }}
-            className={cn(tooltipVariants({ variant, size, position, className }))}
+            className={cn(
+              tooltipVariants({ variant, size, position,}),
+              className
+            )}
             {...props}
           >
             {content}
@@ -85,7 +100,7 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Tooltip.displayName = "Tooltip";
