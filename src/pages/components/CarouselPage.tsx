@@ -4,9 +4,9 @@ import ComponentDemo from "../ComponentsDemo";
 import Carousel from "@/components/Carousel/Carousel";
 import PropsTable from "@/components/Personal/PropsTable";
 
-type Props = {};
 
-const CarouselPage = (props: Props) => {
+
+const CarouselPage = () => {
   const basicUsageCode = `import { Carousel } from "@/components/Carousel/Carousel"
   
   <Carousel slides={["link-1", "link-2", "link-3"]} size='lg' animation="scaleIn" hoverAnimation="scale" />
